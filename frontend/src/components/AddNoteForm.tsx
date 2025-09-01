@@ -14,21 +14,23 @@ export default function AddNoteForm({
   onSubmit,
 }: Props) {
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => onTitleChange(e.target.value)}
-        required
-      />
-      <textarea
-        placeholder="Content"
-        value={content}
-        onChange={(e) => onContentChange(e.target.value)}
-        required
-      />
-      <button type="submit">Add Note</button>
+    <form onSubmit={onSubmit} className="note-form">
+      <div className="note-form-row">
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => onTitleChange(e.target.value)}
+          required
+        />
+        <textarea
+          placeholder="Content"
+          value={content}
+          onChange={(e) => onContentChange(e.target.value)}
+          required
+        />
+        <button type="submit">Add Note</button>
+      </div>
     </form>
   );
 }

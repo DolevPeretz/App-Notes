@@ -1,5 +1,3 @@
-# app/db/models/user.py
-
 from sqlalchemy import Column, Integer, String
 from app.db.models.base import Base
 

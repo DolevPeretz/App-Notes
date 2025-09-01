@@ -5,7 +5,7 @@ import {
   getNotes,
   createNote,
   deleteNote,
-  updateNote, // נוסיף את זה
+  updateNote,
 } from "../services/notesService";
 
 type Note = {
@@ -55,7 +55,7 @@ export default function NotesPage() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>📒 Notes</h1>
       <AddNoteForm
         title={title}
@@ -64,11 +64,7 @@ export default function NotesPage() {
         onContentChange={setContent}
         onSubmit={handleAdd}
       />
-      <NotesList
-        notes={notes}
-        onDelete={handleDelete}
-        onEdit={handleEdit} // 👈 העברנו את הפונקציה
-      />
+      <NotesList notes={notes} onDelete={handleDelete} onEdit={handleEdit} />
     </div>
   );
 }

@@ -33,7 +33,7 @@ const EditNoteForm: React.FC<EditNoteFormProps> = ({
         token,
       });
       await updateNote(token, id, { title, content });
-      onSave(title, content); // ✅ פתרון השגיאה
+      onSave(title, content);
     } catch (err) {
       console.error(err);
       setError("Failed to update the note. Please try again.");
@@ -43,26 +43,32 @@ const EditNoteForm: React.FC<EditNoteFormProps> = ({
   };
 
   return (
-    <div>
-      <input
+    <div className="edit-note-form">
+      <textarea
+        className="note-textarea"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
       />
       <textarea
+        className="note-textarea"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Content"
       />
-      <div style={{ marginTop: "0.5rem" }}>
-        <button onClick={handleUpdate} disabled={isLoading}>
+      <div className="button-group">
+        <button
+          className="note-button"
+          onClick={handleUpdate}
+          disabled={isLoading}
+        >
           {isLoading ? "Saving..." : "Save"}
         </button>
-        <button onClick={onCancel} disabled={isLoading}>
+        <button className="note-button" onClick={onCancel} disabled={isLoading}>
           Cancel
         </button>
       </div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-text">{error}</p>}
     </div>
   );
 };

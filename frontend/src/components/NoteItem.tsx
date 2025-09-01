@@ -27,7 +27,7 @@ export default function NoteItem({
         onCancel={() => setIsEditing(false)}
         onSave={(updatedTitle, updatedContent) => {
           setIsEditing(false);
-          onEdit(id, updatedTitle, updatedContent); // ✅ שולח את הנתונים המעודכנים להורה
+          onEdit(id, updatedTitle, updatedContent);
         }}
       />
     );
