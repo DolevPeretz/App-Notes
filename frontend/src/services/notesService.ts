@@ -31,3 +31,23 @@ export const deleteNote = async (token: string, id: number) => {
     },
   });
 };
+export const updateNote = async (
+  token: string,
+  id: number,
+  data: { title: string; content: string }
+) => {
+  const res = await fetch(`http://localhost:8000/notes/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to update note");
+  }
+
+  return res.json();
+};

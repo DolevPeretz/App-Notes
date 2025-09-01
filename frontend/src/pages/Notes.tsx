@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import AddNoteForm from "../components/AddNoteForm";
 import NotesList from "../components/NotesList";
-import { getNotes, createNote, deleteNote } from "../services/notesService";
+import {
+  getNotes,
+  createNote,
+  deleteNote,
+  updateNote, // נוסיף את זה
+} from "../services/notesService";
 
 type Note = {
   id: number;
@@ -33,6 +38,18 @@ export default function NotesPage() {
     fetchNotes();
   };
 
+  const handleEdit = async (
+    id: number,
+    updatedTitle: string,
+    updatedContent: string
+  ) => {
+    await updateNote(token, id, {
+      title: updatedTitle,
+      content: updatedContent,
+    });
+    fetchNotes();
+  };
+
   useEffect(() => {
     fetchNotes();
   }, []);
@@ -47,7 +64,11 @@ export default function NotesPage() {
         onContentChange={setContent}
         onSubmit={handleAdd}
       />
-      <NotesList notes={notes} onDelete={handleDelete} />
+      <NotesList
+        notes={notes}
+        onDelete={handleDelete}
+        onEdit={handleEdit} // 👈 העברנו את הפונקציה
+      />
     </div>
   );
 }
