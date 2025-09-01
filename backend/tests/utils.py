@@ -1,4 +1,3 @@
-# tests/utils.py
 
 from httpx import AsyncClient
 

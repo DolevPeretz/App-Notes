@@ -7,7 +7,7 @@ from app.crud.user import create_user, get_user_by_email
 db = SessionLocal()
 
 user_data = UserCreate(
-    email="dolev@example.com",
+    email="doleperetzv@example.com",
     password="dolev"
 )
 

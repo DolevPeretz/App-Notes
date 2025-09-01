@@ -1,4 +1,3 @@
-# app/crud/note.py
 
 from sqlalchemy.orm import Session
 from app.db.models.note import Note

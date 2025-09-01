@@ -1,4 +1,3 @@
-// src/components/Toaster.tsx
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

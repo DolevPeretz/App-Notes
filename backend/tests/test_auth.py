@@ -1,4 +1,3 @@
-# tests/test_auth.py
 
 from httpx import AsyncClient
 from app.main import app

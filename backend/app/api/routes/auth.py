@@ -10,7 +10,6 @@ from datetime import timedelta
 
 router = APIRouter()
 
-# Dependency – יוצרת חיבור למסד נתונים
 def get_db():
     db = SessionLocal()
     try:

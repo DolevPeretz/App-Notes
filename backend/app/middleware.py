@@ -5,8 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 def setup_cors(app: FastAPI):
     origins = [
-        "http://localhost:5173",  # frontend בפיתוח
-        # "https://your-production-url.com",  # כתובת פרודקשן בהמשך
+        "http://localhost:5173",  
+        # "https://your-production-url.com",  
     ]
 
     app.add_middleware(
