@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# Notes Frontend (Vite + React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the Notes App, built with Vite, React, TypeScript
+CSS. It connects to a FastAPI backend and PostgreSQL database for user-authenticated note management.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- React Router
+- Custom Protected Routes
+- Token-based Authentication (JWT)
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/          # Reusable UI components (Forms, Notes list, etc.)
+├── pages/               # Route-level views (Login, Notes)
+├── schemas/             # Zod validation schemas
+├── services/            # API service calls (Auth, Notes)
+├── utils/               # Utility functions (e.g., token storage)
+├── App.tsx              # Main app component
+├── main.tsx             # App entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 🔐 Login via email & password
+- ✅ Protected routes with automatic redirects
+- 📝 Add, edit, delete notes list
+- 🌐 Backend integration using RESTful APIs
+- 💾 Token storage in localStorage
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧪 Running Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
+
+### 📦 Environment Variables
+
+Ensure `.env` file contains the following:
+
+```
+VITE_API_BASE_URL=http://localhost:5173/
+```
+
+## 📸 UI Screenshots
+
+- **Login Page**: Authenticates users with credentials.
+- **Notes Page**: Lists, adds, edits and deletes notes.
+
+## 🗂 Pages
+
+- `/login`: Login page
+- `/notes`: Main notes dashboard

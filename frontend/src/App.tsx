@@ -1,8 +1,8 @@
-// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Notes from "./pages/Notes";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import Toaster from "./components/Toaster";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
         />
         <Route path="*" element={<Login />} />
       </Routes>
+      <Toaster />
     </Router>
   );
 }
